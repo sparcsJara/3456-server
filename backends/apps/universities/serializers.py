@@ -14,7 +14,6 @@ class StorySerializer(serializers.ModelSerializer):
 
 class SpotSerializer(serializers.ModelSerializer):
     stories = StorySerializer(many=True, read_only=True)
-
     class Meta:
         model = Spot,
         fields = (

@@ -46,6 +46,11 @@ class Story(models.Model):
         related_name='stories',
         on_delete=models.CASCADE,
     )
-    content = models.CharField(max_length=100, default=None)
+    writer = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        default=1
+    )
+    content = models.TextField(blank=True, null=True)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)
