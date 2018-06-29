@@ -15,6 +15,7 @@ class StorySerializer(serializers.ModelSerializer):
 
 class SpotSerializer(serializers.ModelSerializer):
     stories = StorySerializer(many=True, read_only=True)
+    picture_thumbnail = serializers.ImageField(read_only=True)
 
     class Meta:
         model = Spot
@@ -25,6 +26,7 @@ class SpotSerializer(serializers.ModelSerializer):
             'addr_x',
             'addr_y',
             'picture',
+            'picture_thumbnail',
             'category',
             'comment',
             'stories'

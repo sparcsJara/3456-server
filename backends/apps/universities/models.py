@@ -4,6 +4,8 @@ from django.apps import apps as django_apps
 from django.conf import settings
 from django.db import models
 from apps.users.models import User
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 
 class University(models.Model):
@@ -35,6 +37,11 @@ class Spot(models.Model):
     addr_x = models.FloatField()
     addr_y = models.FloatField()
     picture = models.FileField(upload_to='pictures/')
+    picture_thumbnail = ImageSpecField(source='picture',
+                                     processors=[ResizeToFill(600, 800)],
+                                     format='JPEG',
+                                     options={'quality': 60},
+                                     )
     category = models.CharField(max_length=2, choices=CATEGORY)
     comment = models.CharField(max_length=100)
     is_validated = models.BooleanField(default=False)
