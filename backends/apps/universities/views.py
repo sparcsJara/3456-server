@@ -35,7 +35,7 @@ class SpotViewSet(viewsets.ModelViewSet):
         queryset = Spot.objects.filter(is_validated=True)
         category = self.request.query_params.get('category', None)
         if category is not None:
-            queryset = queryset.filter(spot__category=category)
+            queryset = queryset.filter(category=category)
         return queryset
 
 class StoryViewset(viewsets.ModelViewSet):
