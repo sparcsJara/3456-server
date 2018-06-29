@@ -16,17 +16,10 @@ class University(models.Model):
 
 class Spot(models.Model):
     CATEGORY = (
-        ('RS', 'Restaurant Single'),
-        ('RD', 'Restaurant Duo'),
-        ('RP', 'Restaurant Price'),
-        ('CS', 'Cafe Single'),
-        ('CD', 'Cafe Duo'),
-        ('CP', 'Cafe Price'),
-        ('PS', 'Pub Soju'),
-        ('PD', 'Pub Duo'),
-        ('PP', 'Pub Price'),
-        ('HD', 'Hidden Day'),
-        ('HN', 'Hidden Night')
+        ('R', 'Restaurant'),
+        ('C', 'Cafe'),
+        ('P', 'Pub'),
+        ('H', 'Hidden')
     )
     university = models.ForeignKey(
         University,
