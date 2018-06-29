@@ -2,6 +2,7 @@ from apps.universities.models import *
 from rest_framework import serializers
 from django.conf import settings
 
+
 class StorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Story
@@ -14,6 +15,7 @@ class StorySerializer(serializers.ModelSerializer):
 
 class SpotSerializer(serializers.ModelSerializer):
     stories = StorySerializer(many=True, read_only=True)
+
     class Meta:
         model = Spot
         fields = (

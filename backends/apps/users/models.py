@@ -43,6 +43,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_deleted = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     joined_date = models.DateField(auto_now_add=True)
-
-
-

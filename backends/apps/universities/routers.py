@@ -19,4 +19,3 @@ router.register(
     prefix=r'stories',
     viewset=StoryViewset,
 )
-

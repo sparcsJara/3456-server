@@ -19,7 +19,6 @@ from django.conf.urls import include, url
 from apps.universities.routers import router
 from apps.users.routers import user_router
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),

@@ -9,6 +9,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import action
 
+
 # Create your views here.
 
 class UniversityViewSet(viewsets.ModelViewSet):
