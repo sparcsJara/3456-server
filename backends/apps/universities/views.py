@@ -21,10 +21,15 @@ class UniversityViewSet(viewsets.ModelViewSet):
     queryset = University.objects.all()
     serializer_class = UniversitySerializer
 
+
 class SpotViewSet(viewsets.ModelViewSet):
     queryset = Spot.objects.filter(is_validated=True)
     serializer_class = SpotSerializer
 
+
 class StoryViewset(viewsets.ModelViewSet):
     queryset = Story.objects.all()
     serializer_class = StorySerializer
+
+    def perform_create(self, serializer):
+        serializer.save(writer=self.request.user)
