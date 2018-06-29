@@ -22,6 +22,17 @@ class UniversityViewSet(viewsets.ModelViewSet):
     queryset = University.objects.all()
     serializer_class = UniversitySerializer
 
+    def get_queryset(self):
+        """
+        Optionally restricts the returned purchases to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = University.objects.all()
+        university = self.request.query_params.get('university', None)
+        if university is not None:
+            queryset = queryset.filter(university=university)
+        return queryset
+
 
 class SpotViewSet(viewsets.ModelViewSet):
     queryset = Spot.objects.filter(is_validated=True)
@@ -37,6 +48,7 @@ class SpotViewSet(viewsets.ModelViewSet):
         if category is not None:
             queryset = queryset.filter(category=category)
         return queryset
+
 
 class StoryViewset(viewsets.ModelViewSet):
     queryset = Story.objects.all()
