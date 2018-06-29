@@ -4,7 +4,7 @@ from django.conf import settings
 
 class StorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Story,
+        model = Story
         fields = '__all__'
         read_only_fields = (
             'created_time',
@@ -15,7 +15,7 @@ class StorySerializer(serializers.ModelSerializer):
 class SpotSerializer(serializers.ModelSerializer):
     stories = StorySerializer(many=True, read_only=True)
     class Meta:
-        model = Spot,
+        model = Spot
         fields = (
             'id',
             'university',
